@@ -1665,14 +1665,14 @@ if (player.version < 5) {
       document.getElementById("infi33").innerHTML = "维度提升倍数增加 <br>2x -> 2.5x<br>花费: 7 无限点数"
   }
   var resetSkipCosts=[20,40,80]
-  for (u=1;u<4;u++) document.getElementById("infi4"+u).innerHTML="开始时已解锁"+["第五","第六","第七"][u-1]+"维度"+(player.tickspeedBoosts==undefined?"":", 并拥有"+(u*4)+"时间间隔提升")+"<br>花费: "+resetSkipCosts[u-1]+" 无限点数"
-  document.getElementById("infi44").innerHTML="开始时已解锁第八维度, 并拥有"+(player.tickspeedBoosts==undefined?"":"16时间间隔提升和")+"一个星系<br>花费: 500 无限点数"
+  for (u=1;u<4;u++) document.getElementById("infi4"+u).innerHTML="开始时已解锁"+["第五","第六","第七"][u-1]+"维度"+(player.tickspeedBoosts==undefined?"":", 并拥有"+(u*4)+"时刻间隔提升")+"<br>花费: "+resetSkipCosts[u-1]+" 无限点数"
+  document.getElementById("infi44").innerHTML="开始时已解锁第八维度, 并拥有"+(player.tickspeedBoosts==undefined?"":"16时刻间隔提升和")+"一个星系<br>花费: 500 无限点数"
   var showMoreBreak = player.galacticSacrifice ? "" : "none"
   for (i=1;i<5;i++) document.getElementById("postinfi0"+i).parentElement.style.display=showMoreBreak
-  document.getElementById("d5AutoChallengeDesc").textContent=player.galacticSacrifice?"Tickspeed upgrades"+(player.tickspeedBoosts==undefined?"":" and Tickspeed Boosts")+" start out useless, but galaxies make them stronger.":"Tickspeed starts at 7%."
-  document.getElementById("tbAutoChallengeDesc").textContent=player.tickspeedBoosts==undefined?"Whenever you buy 10 of a dimension or tickspeed, everything else of equal cost will increase to its next cost step.":"You can't get Tickspeed Boosts and Antimatter Galaxies are 25% weaker."
-  document.getElementById("autoDBChallengeDesc").textContent="There are only 6 dimensions, with dimension boost"+(player.tickspeedBoosts==undefined?"":", tickspeed boost,")+" and antimatter galaxy costs modified."
-  document.getElementById("autoCrunchChallengeDesc").textContent="Each dimension produces the dimension 2 below it; first dimensions produce reduced antimatter. "+(player.galacticSacrifice?"Galaxies are far more powerful.":"")
+  document.getElementById("d5AutoChallengeDesc").textContent=player.galacticSacrifice?"Tickspeed upgrades"+(player.tickspeedBoosts==undefined?"":" and Tickspeed Boosts")+" start out useless, but galaxies make them stronger.":"开始时，时刻间隔减少为7%。"
+  document.getElementById("tbAutoChallengeDesc").textContent=player.tickspeedBoosts==undefined?"只要你购买10次维度或是时刻间隔，其他花费相同的升级项的价格将会跳跃到下一次升级的价格。":"你不能获得时刻间隔提升，星系的效果减少25%。"
+  document.getElementById("autoDBChallengeDesc").textContent="只有六个维度，并对维度提升"+(player.tickspeedBoosts==undefined?"":"，时刻间隔提升")+"以及反物质星系的价格进行调整。"
+  document.getElementById("autoCrunchChallengeDesc").textContent="每个维度都会生产低两阶的维度；第一维度生产反物质。"+(player.galacticSacrifice?"星系的效果大大增加。":"")
   document.getElementById("autoDSChallengeDesc").textContent=player.tickspeedBoosts==undefined?"Per-ten multiplier is always 1x, but product of dimensions bought multiplies all dimensions.":"There is the product of amount instead of the product of bought."
   document.getElementById("autoGSChallengeDesc").textContent=player.tickspeedBoosts==undefined?"You can only get 308 tickspeed upgrades. This count does not reset on resets.":"All galaxy upgrades from the third column are disabled and Tickspeed Boosts give 20 free tickspeed purchases each instead."
   document.getElementById("infPowEffectPowerDiv").innerHTML=player.galacticSacrifice?"Raised to the power of <span id='infPowEffectPower' style='font-size:35px; color: black'></span>, t":"T"

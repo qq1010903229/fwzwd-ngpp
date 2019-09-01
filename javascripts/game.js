@@ -2014,14 +2014,14 @@ function updateChallenges() {
 	var buttons = Array.from(document.getElementById("normalchallenges").getElementsByTagName("button")).concat(Array.from(document.getElementById("breakchallenges").getElementsByTagName("button")))
 	for (var i=0; i < buttons.length; i++) {
 		buttons[i].className = "challengesbtn";
-		buttons[i].textContent = "Start"
+		buttons[i].textContent = "开始"
 	}
 
 	tmp.cp=player.tickspeedBoosts==undefined?-14:0
 	infDimPow=1
 	for (var i=0; i < player.challenges.length; i++) {
 		document.getElementById(player.challenges[i]).className = "completedchallengesbtn";
-		document.getElementById(player.challenges[i]).textContent = "Completed"
+		document.getElementById(player.challenges[i]).textContent = "已完成"
 		if (player.challenges[i].search("postc")==0||player.tickspeedBoosts==undefined) tmp.cp++
 		if (player.challenges.includes("postc1")) if (player.challenges[i].split("postc")[1]) infDimPow*=player.galacticSacrifice?2:1.3
 	}
@@ -2032,7 +2032,7 @@ function updateChallenges() {
 	} else challengeRunning=player.currentChallenge
 	if (challengeRunning!==undefined) {
 		document.getElementById(challengeRunning).className = "onchallengebtn";
-		document.getElementById(challengeRunning).textContent = "Running"
+		document.getElementById(challengeRunning).textContent = "运行中"
 	}
 
 	if (inQC(4)) {
