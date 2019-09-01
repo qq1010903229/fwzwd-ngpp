@@ -1755,7 +1755,7 @@ function updateDimensions() {
                 if (player.galacticSacrifice) {
                     var base=player.tickspeedBoosts==undefined?2:1
                     if (player.aarexModifications.newGameExpVersion) base*=10
-                    document.getElementById("infi21").innerHTML = "Increase the multiplier for buying 10 Dimensions based on infinitied stat<br>"+base+"x -> "+(infUpg12Pow()*base).toPrecision(4)+"x<br>Cost: 1 IP"
+                    document.getElementById("infi21").innerHTML = "根据到达无限次数，每买10个维度的倍数增加<br>"+base+"x -> "+(infUpg12Pow()*base).toPrecision(4)+"x<br>花费: 1 无限点数"
                     document.getElementById("infi33").innerHTML = "Dimension boosts are stronger based on infinity points<br>Currently: " + (1.2 + 0.05 * player.infinityPoints.max(1).log(10)).toFixed(2) + "x<br>Cost: 7 IP"
                 }
                 document.getElementById("infi34").innerHTML = "根据到达无限的最快时间生产无限点数 <br>当前: 每 "+timeDisplay(player.bestInfinityTime*10) +"获得 "+shortenDimensions(getIPMult())+ "点<br>花费: 10 无限点数"
