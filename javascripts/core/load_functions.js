@@ -1662,7 +1662,7 @@ if (player.version < 5) {
       document.getElementById("galaxy15").innerHTML = "Normal and Time Dimensions produce "+(player.infinitied>0||getEternitied()!==0||quantumed?"faster based on your infinitied stat.<br>Currently: <span id='galspan15'></span>x":"100x faster")+".<br>Cost: 1 GP"
   } else {
       document.getElementById("infi21").innerHTML = "每买10个维度的倍数增加 <br>"+(player.aarexModifications.newGameExpVersion?"20x -> 24x":"2x -> 2.2x")+"<br>花费: 1 无限点数"
-      document.getElementById("infi33").innerHTML = "Increase Dimension Boost multiplier<br>2x -> 2.5x<br>Cost: 7 IP"
+      document.getElementById("infi33").innerHTML = "维度提升倍数增加 <br>2x -> 2.5x<br>花费: 7 无限点数"
   }
   var resetSkipCosts=[20,40,80]
   for (u=1;u<4;u++) document.getElementById("infi4"+u).innerHTML="You start with the "+(u+4)+"th dimension unlocked"+(player.tickspeedBoosts==undefined?"":" and "+(u*4)+" tickspeed boosts")+"<br>Cost: "+resetSkipCosts[u-1]+" IP"
