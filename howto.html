@@ -41,11 +41,11 @@
   <br>
   <b>累计维度数量:</b> 下一列就是你当前拥有这个维度的数量。这个数值包括你用反物质购买的维度，也包括高阶维度所生产的。
   <br>
-  <b>购买维度数量:</b>  累计拥有维度数量之后，紧接着就是括号中的向着下一个倍数升级购买的次数。如果数值为(4)，意味着再买6个这个维度就能到达下一个倍数加成。
+  <b>Purchased Dimensions Quantity:</b>  Next to each accumulated quantity of owned dimensions, the amount of that dimension purchased toward the next multiplier upgrade is displayed in brackets.  If you have (4) next to your accumulated dimension quantity, you will need 6 more of that dimension for the next multiplier increase.
   <br>
-  <b>维度增长百分比:</b>  这个数字表示这个维度每秒的增长率。+100%意味着每秒这个维度数量翻倍。这个数值可以帮助你判断全局增长。
+  <b>Dimension Growth Percent:</b>  This number represents the amount of growth that dimension experiences per second. +100% means the dimension is doubling each second.  This allows you to judge overall growth.
   <br>
-  <b>成本 & 直到 10:</b> 当 成本 按钮高亮时，你可以购买单个数量的维度。此外，如果 直到10 按钮高亮，你可以购买让这个维度到达下一个维度倍数的数量。
+  <b>Cost & until 10:</b> You can buy a single quantity of each dimension with antimatter when the cost button is highlighted.  Alternatively, if the Until 10 button is highlighted, you can buy whatever quantity gets you to that dimensions next dimension multiplier.
   <br>
   <b>全部最大:</b> 全部最大将会购买最大的时间间隔(见下文)，然后将购买第八维度的直到10，直到无法购买，然后购买维度7的直到10，然后继续下去。
   <br>
@@ -62,7 +62,7 @@
   <br>
   <b>间隔:</b> 每个时刻间的时间长度。这个可以通过购买减少时刻间隔来减少。
   <br>
-  <b>花费:</b> 花费反物质来按上面显示的百分比%减少时刻间隔。(如果没有反物质星系，每次购买你的基础时刻间隔减少11%)
+  <b>Cost:</b> The cost in antimatter for reducing the tick interval by the % displayed above (Without Galaxies your base tickspeed decrease is 11% per purchase)
   <br>
   <b>购买最大:</b> 根据你当前的反物质来购买最大数量的减少时刻间隔。
   <br>
@@ -88,7 +88,7 @@
   <br>
   你的第一个星系会认为你最初为10%来减少你的时刻间隔，所以你买了第一个星系后只有12%。
   <br>
-  购买星系需要80+(星系数量*60)的第八维度。当你超过100非复制星系时需要(80+星系数量*60+(星系数量-99)^2*2)第八维度
+  Galaxies require 80+(galaxies*60) (base) Eighth Dimensions. (80+galaxies*60+(galaxies-99)^2*2 when above 100 non-replicanti galaxies, with even faster scaling later on)
   <br>
     <b>快捷键: G</b>
   </div>
@@ -129,7 +129,7 @@
   <div style="text-align: left" id='div7' class='hidden'>
   每一项成就都有在获得之前必须满足的条件。有些非常简单，有些则非常棘手。在尝试一些困难的成就之前，你可能需要到达无限或是开始一个挑战。
   <br>
-  每完成一行成就，所有维度的倍数都会乘以1.5，,除此以外，一些成就也会有它们额外的奖励。
+  You will receive a x1.5 multiplier to all dimensions for each completed row. In addition, some achievements have their own rewards.
   </div>
   <hr id='div7hr'>
   <button onclick='changestate(8)' id='div8btn' class="storebtn">挑战</button>
@@ -145,11 +145,11 @@
   <div style="text-align: left" id='div9' class='hidden'>
   <b>自动购买:</b>
   <br>
-  自动购买(通过完成挑战获得)让你能够自动购买维度、维度转换/提升、星系、减少时间间隔、大坍缩，以及维度献祭(之后)。它们位于无限页面下的“自动购买”中。
+  Autobuyers (awarded by completing challenges) allow the automatic purchase of dimensions, dimension shifts/boosts, galaxies, tickspeed interval decreases, Big Crunches, and Dimensional Sacrifice (later). They are located under the infinity tab in "Autobuyers".
   <br><br>
   <b>优先级:</b> 优先级使游戏在同一时刻可购买两个事物的时候可分辨出先购买哪一个。优先级1就是第一批购买，优先级2就是第二批购买，以此类推。两个相同的优先级会随机挑选一个购买。<!-- While you cannot set these, big crunch has a priority of 0, galaxies have a priority of 10, dimboosts 11, and sacrifice (once unlocked) 11. -->
   <br>
-  <b>自动购买速度:</b>自动购买在两次购买间的冷却时间。这个是每100ms判定一次的，所以200ms和101ms也是同样的速度。
+  <b>Autobuyer Speed:</b>The cooloff period before the autobuyer makes another purchase. This rounds up to the nearest 100ms, so 200ms and 101ms are the same speed.
   <br>
   <b>批量购买:</b> 当一个自动购买的速度已经升到最大，所有未来的升级都会使每次自动购买的数量翻倍。这个功能可以关闭。
   <br>
@@ -186,7 +186,7 @@
   <br>
   <b>无限维度花费:</b>无限维度每次只能购买10个，并且花费无限点数。
   <br>
-  <b>无限维度生产:</b>和普通维度类似，每一个无限维度都会生产低一阶的无限维度。维度3生产2,2生产1。无限维度不生产反物质，而是生产无限力量，无限力量可以给所有普通维度一个倍数加成。
+  <b>Infinity Dimension Production:</b>Similar to the original dimensions, each infinity dimension produces the dimension below it. Dimension 3 produce 2, 2 produces 1.  Instead of antimatter, Infinity Dimension produces Infinity power, which translates to an overall multiplier on all original dimensions.
   <br>
   无限力量给所有维度的倍数加成为 (无限力量^7).
   </div>
@@ -200,9 +200,9 @@
   <hr id='div12hr'>
   <button onclick='changestate(13)' id='div13btn' class="storebtn">复制品</button>
   <div style="text-align: left" id='div13' class='hidden'>
-  每个复制品在每个复制品时刻都有可能复制自身，这个复制概率是可提升的。你可以基于拥有的复制品数量获得对无限维度的加成。
+  Each replicanti has an upgradable chance to update every replicanti tick. You will gain a bonus to infinity dimensions based on how much replicanti you have.
   <br>
-  当复制品数量到达无限时，你可以购买一个星系。这不会增加普通星系的成本。你可以拥有的复制品星系的数量是有上限的(上限可以提升)。一旦复制品数量达到无限，它们就不会再增长。
+  When replicanti reach infinity, you can buy a galaxy. This will not increase the cost of normal galaxies. The amount of replicanti galaxies you can have is capped (upgradable). Once you reach infinity replicanti, they will not continue growing (unless you have the relevant time study).
   <br>
   当离线时、或页面因最小化等处于不活跃状态、或延迟、或刷新速率小于50ms，复制品会有一个近似计算时间。这个可以导致很大程度上不同的结果，特别是在极低的数字(1-5)。
   <br>
@@ -218,7 +218,7 @@
   <div style="text-align: left" id='div14' class='hidden'>
   一旦你的无限点数数目达到无限，你就能够达到永恒。永恒将重置之前的一切，除了挑战时间、成就和总反物质。你也可以解锁一个新页面。
   <br>
-  你的无限点数数目可以超过无限。你拥有的无限点数越多，在永恒时可以获得的永恒点数就越多。
+  You can pass infinity Infinity Points whenever. You will receive more Eternity Points the more Infinity Points you had before going Eternal.
   <br>
   <b>永恒点数获取公式:</b> floor(5^(floor(log10(无限点数))/308-0.7)*加成。 X10无限点数的时间研究计算在外层的floor(向下取整)之前。
   </div>
@@ -227,7 +227,7 @@
   <div style="text-align: left" id='div15' class='hidden'>
     为了使永恒变得更加快速、更加便捷，你的永恒次数越多，就能解锁各种不同的功能。这些功能或是使你在永恒开始时就拥有一些东西，或是解锁一个自动购买。
     <br>
-    对于在永恒开始时拥有东西的功能，你将会保留你解锁里程碑那一轮相关的一些数据。(比如从第一次永恒到第二次永恒，你将保留自动购买)
+    For the buffs at the start of an eternity, you will keep the relevant statistic on the run you unlock the milestone. (On 1 > 2, you will keep your autobuyers.)
     <br>
     最后一个里程碑需要100次永恒，并能允许全自动永恒。
     </div>
@@ -243,18 +243,23 @@
     <hr id='div16hr'>
   <button onclick='changestate(17)' id='div17btn' class="storebtn">时间研究</button>
   <div style="text-align: left" id='div17' class='hidden'>
-    时间研究是永恒后的强力升级系统，需要消耗时间定律。时间研究是以经典的树状分布排列的，你在购买后一项之前必须先购买前一项。有时你需要抉择，要购买哪一项时间研究。因为即使你的时间定律足够，你也不能把它们全部买下来。
+    A Time Study is a powerful post-eternity upgrade, which costs Time Theorems. Time Studies are laid out in a tree-like fashion, where you must buy prerequisites before continuing. There are sometimes choices to make with which Time Study to buy, as you cannot get all of them even if affordable.
     <br>
     时间定律是一种有限的资源，每次购买后价格都会提升。它可以通过反物质、无限点数以及永恒点数来购买。
     <br>
-    <b>重置时间研究:</b> 重置时间研究能让你移除升级树上的所有升级，并获取所有消耗过的时间定律。在永恒中你可以随时免费重置，在下一次永恒生效。
+    <b>Respecs:</b> A Respec allows you to reset the upgrades you have in the tree to retrieve the Time Theorems spent on them. It can be done for free on eternity.
     <br>
     <b>成本:</b> 反物质：(1e20000^购买次数), 无限点数：(1e100^购买次数), 永恒点数：(2^购买次数)。
     </div>
     <hr id='div17hr'>
-    <button onclick='changestate(18)' id='div18btn' class="storebtn">时间膨胀</button> 
-<div style="text-align: left" id='div18' class="hidden"> 
-在你分别通过永恒挑战11、12五次，并总共拥有13000时间定律后，你可以花费5000时间定律来购买时间膨胀这个时间研究。时间膨胀后会开始一个新的永恒，并且你所有的维度/无限维度/时间维度的倍数的指数部分、以及减少时间间隔的倍数将会减少为0.75次方。  
+  <button onclick='changestate(18)' id='div18btn' class="storebtn">Eternity Challenges</button>
+  <div style="text-align: left" id='div18' class='hidden'>
+    Eternity Challenges are a new type of Challenges where you must eternity at specified amount of IP to finish the challenge. There is a time study that unlocks an Eternity Challenge when bought, called "Eternity Challenge study", but there is a prerequisite for every Eternity Challenge study. Each time you complete an Eternity Challenge, the goal increases and you need to reach bigger prerequisite values to do it again.
+    </div>
+    <hr id='div18hr'>
+    <button onclick='changestate(19)' id='div19btn' class="storebtn">Time Dilation</button> 
+<div style="text-align: left" id='div19' class="hidden"> 
+Time dilation is unlocked when you purchase the 5,000 TT time study after beating both EC11 and EC12 five times, and after acquiring a total of 13,000 TT. Dilating time will start a new eternity, and all of your Dimension/Infinity/Time Dimension multipliers’ exponents and tickspeed multipliers’ will be reduced to ^0.75.  
  <br>
   当你时间膨胀后能达到 1.79e308 无限点数并永恒，作为奖励，你将会得到超光速粒子。只要你愿意，你可以随时进行时间膨胀，不限次数。
 <br> 
@@ -262,10 +267,104 @@
 <br> 
 时间膨胀升级是花费膨胀时间来购买的升级。一些升级可以增加膨胀时间的获取量、或者重置免费星系，但是减少获取免费星系的需求值。此外，其中一项时间膨胀升级可以生产时间定律。时间膨胀升级的第一行可以购买无数次，但是其他的都不行。
 </div> 
-<hr id='div18hr'> 
-    <a href="https://www.reddit.com/r/AntimatterDimensions/comments/73jhqe/patashus_antimatter_dimensions_guide/?utm_content=title&utm_medium=hot&utm_source=reddit&utm_name=AntimatterDimensions">策略指南</a>
+<hr id='div19hr'> 
+    <button onclick='changestate(20)' id='div20btn' class="storebtn">Meta Dimensions</button>
+    <div style="text-align: left" id='div20' class='hidden'>
+    Meta Dimensions are a new type of dimensions that resemble Normal Dimensions, but there is no meta-tickspeed and meta-galaxies. They can be unlocked by buying 1e24 TT dilation study. meta-dimension 1 produces meta-antimatter, which makes dimension boosts more powerful. A meta-dimension 2 produces  a meta-dimension 1 and so on until the 8th. Unlike Normal Dimensions, resetting meta-dimensions (with meta-dimension shifts/boosts) does not reset anything outside of it. Only meta-dimensions will reset.
+    </div>
+    <hr id='div20hr'>
+    <button onclick='changestate(21)' id='div21btn' class="storebtn">Mastery Studies</button>
+    <div style="text-align: left" id='div21' class='hidden'>
+    Mastery Studies are a new type of Time & Dilation studies, but the cost will rise each time you buy a time study. When you respec, the costs of all time studies will decrease.
+    </div>
+    <hr id='div21hr'>
+    <button onclick='changestate(22)' id='div22btn' class="storebtn">Quantum</button>
+    <div style="text-align: left" id='div22' class='hidden'>
+    </div>
+    <hr id='div22hr'>
+    <button onclick='changestate(23)' id='div23btn' class="storebtn">Quarks & Gluons</button>
+    <div style="text-align: left" id='div23' class='hidden'>
+    When you go quantum, you receive a number of quarks based on meta-antimatter. At any time, you can assign all your quarks to be either red, green, or blue quarks. Your quarks will produce an amount of color power based on the difference between the color quarks you have the most of and the color you have the second-most of. So, if you had 4 red quarks and 1 blue quark, you would get 3 red charge, producing 3 red power per second. Each color power provides a boost: red provides stronger galaxies, green provides more replicated galaxies, and blue provide faster dilated time production. Note that even if you aren't generating a particular color power, the color power you have already generated is still effective.
+    <br>
+    If you have two or more quark colors, upon quantum some quarks will fuse to become gluons. There are three types of gluons: red-green, green-blue, and blue-red. T form them you must have both of the specified colors; when you quantum, only the first color in the gluon's name will be removed, however. For example, if you had 4 green quarks and 2 blue quarks, two green-blue gluons would form, and you'd have 2 green quarks left over. If you had 4 red, 3 green, and 2 blue, you'd end up with 3 red-green gluons, 2 green-blue gluons and 2 blue-red gluons, with 1 red and 1 green quark left. You can spend your accumulated gluons on various upgrades to increase your production further, as well as an upgrade that doubles the amount of quarks you gain on quantum.
+    </div>
+    <hr id='div23hr'>
+    <button onclick='changestate(24)' id='div24btn' class="storebtn">Electrons</button>
+    <div style="text-align: left" id='div24' class='hidden'>
+    You unlock electrons by purchasing the first new dilation study under mastery studies that costs 2e82 time theorems. Electrons provide a boost to your multiplier per 10 dimensions bought, but in order to use them, you have to sacrifice your regular galaxies. The number of electrons you get is equal to the number of galaxies you sacrificed times the number of electrons per galaxy you currently have. This number starts at 2 electrons per galaxy, and can be upgraded using either time theorems, dilated time, meta-antimatter, or meta-dimension boosts. Each upgrade increases the electrons per galaxy by 0.25.
+    </div>
+    <hr id='div24hr'>
+    <button onclick='changestate(25)' id='div25btn' class="storebtn">Quantum Challenges</button>
+    <div style="text-align: left" id='div25' class='hidden'>
+    Like infinity challenges, there are quantum challenges where you must reach a certain amount of antimatter and then do a quantum reset (you must also reach 9.31e446 meta-antimatter). To start a QC you must spend a certain number of electrons, increasing from one challenge to the next. In addition to the conditions of each individual challenge, electrons don't do anything during quantum challenges.
+    </div>
+    <hr id='div25hr'>
+    <button onclick='changestate(26)' id='div26btn' class="storebtn">Paired Challenges</button>
+    <div style="text-align: left" id='div26' class='hidden'>
+    Paired challenges consist of two quantum challenges whose conditions are applied at once. You can assign each of the four paired challenges to any pair of quantum challenges, though the same challenge can't be used twice. The cost to start a PC is based on the sum of costs for the component challenges, and the goal is also based on the goals of the component challenges. You can respec PC assignments at any time, though you will lose the PCs you already completed.
+    </div>
+    <hr id='div26hr'>
+    <button onclick='changestate(27)' id='div27btn' class="storebtn">Replicants</button>
+    <div style="text-align: left" id='div27' class='hidden'>
+    Upon buying the appropriate mastery study, you can make replicants to gather preons which provide a boost to extra replicated galaxies. To get a replicant you have to reset your replicanti amount after reaching certain requirements (starts at e3,000,000, increases e100,000 each time).
+    <br>
+    You can spend gluons to buy quantum food, which, when used, turns normal replicants into worker replicants. Worker replicants gather more preons, and also produce eggons, which turn into baby replicants. Baby replicants will eventually become normal replicants. You can also spend gluons to make eggons hatch faster.
+    </div>
+    <hr id='div27hr'>
+    <button onclick='changestate(28)' id='div28btn' class="storebtn">Emperor Dimensions</button>
+    <div style="text-align: left" id='div28' class='hidden'>
+    As with other types of dimensions, each emperor dimension produces the one below it, and there are 8 total emperor dimensions. First emperor dimensions are the same as worker replicants, second emperor dimensions produce worker replicants, etc. To get the highest emperor dimension available, you must spend quantum food, similar to promoting a normal replicant to a worker replicant. You increase the amount of the highest dimension you can get, as well as unlocking the ability to buy higher dimensions, by spending gluons.
+    </div>
+    <hr id='div28hr'>
+    <button onclick='changestate(29)' id='div29btn' class="storebtn">Nanofield</button>
+    <div style="text-align: left" id='div29' class='hidden'>
+    Nanofield allows you to gain further bonuses by getting preon energy, produced by preon charge. You can enable the production of preon charge, which produces preon energy, but also preon anti-energy. Preon anti-energy slows down preon energy production until a cap of anti-energy is reached, where preon energy production completely stops.. When this happens, the only way to get more preon energy is to get more preon charge. You can get rewards from your preon energy, with the first one requiring 50 preon energy, and each subsequent one requiring 4 times as much preon energy. Note: Preon charge, energy, and anti-energy reset on quantum, but you keep whatever rewards you have already earned on previous quantums.
+    </div>
+    <hr id='div29hr'>
+    <button onclick='changestate(30)' id='div30btn' class="storebtn">Tree of Decay</button>
+    <div style="text-align: left" id='div30' class='hidden'>
+    Upon unlocking this feature, you can convert your normal quarks into unstable quarks. there are three kinds of unstable quarks, one for each kind of normal quark. Unstable quarks will give you same-colored quark spins as long as you have them, but they also decay at an exponential rate (until 1, then decreases linearly to 0). You can use quark spins to buy two new kinds of upgrades: Branch upgrades which affect only one type of quark and always cost that type of spin, and tree upgrades which upgrade something else (not related to unstable quarks or quark spins), whose cost rotates between different quark spins. There are a total of 3 branch upgrades for each color, and 8 tree upgrades, all of which are repeatable. You keep your unspent quark spins and all tree upgrades on each quantum.
+    </div>
+    <hr id='div30hr'>
+    <button onclick='changestate(31)' id='div31btn' class="storebtn">Big Rip</button>
+    <div style="text-align: left" id='div31' class='hidden'>
+    Once you unlock this feature by buying a mastery study, you can big rip the universe. To do this, you must have one of your paired challenges assigned to be QC6+QC8, which is the hardest paired challenge to complete. When you big rip, You start a new quantum inside PC6+8, with only your quantum mechanics working (from quarks and gluons on), but nothing before that (it all comes back upon exiting the big rip). At any time, you can exit the big rip to gain an amount of space shards based on your best antimatter amount while big ripped. You can spend space shards to buy various upgrades that make big rips easier, either by giving a boost that only applies in big rips, or letting you keep something inside big rips. 
+    </div>
+    <hr id='div31hr'>
+    <button onclick='changestate(32)' id='div32btn' class="storebtn">Break Eternity</button>
+    <div style="text-align: left" id='div32' class='hidden'>
+    This is a feature exclusive to big rip runs which unlocks at 1e1215 EP. While eternity is broken, time dimensions will now work in big rips, as will galaxies (though galaxy costs scale much faster in big rips). When you eternity, you gain eternal matter based on your time shards. You can spend this eternal matter to buy 7 new big-rip-exclusive upgrades (one of which is repeatable).
+    </div>
+    <hr id='div32hr'>
+    <button onclick='changestate(33)' id='div33btn' class="storebtn">Ghostify</button>
+    <div style="text-align: left" id='div33' class='hidden'>
+    This will be written by Username5243.
+    </div>
+    <hr id='div33hr'>
+    <button onclick='changestate(34)' id='div34btn' class="storebtn">Brave Milestones</button>
+    <div style="text-align: left" id='div34' class='hidden'>
+    This will be written by Username5243.
+    </div>
+    <hr id='div34hr'>
+    <button onclick='changestate(35)' id='div35btn' class="storebtn">Neutrinos</button>
+    <div style="text-align: left" id='div35' class='hidden'>
+    This will be written by Username5243.
+    </div>
+    <hr id='div35hr'>
+    <button onclick='changestate(36)' id='div36btn' class="storebtn">Automatic Ghosts</button>
+    <div style="text-align: left" id='div36' class='hidden'>
+    This will be written by Username5243.
+    </div>
+    <hr id='div36hr'>
+    <button onclick='changestate(37)' id='div37btn' class="storebtn">Ghostly Photons</button>
+    <div style="text-align: left" id='div37' class='hidden'>
+    This will be written by Username5243.
+    </div>
+    <hr id='div37hr'>
+    <a href="http://antimatter-dimensions.wikia.com/wiki/Guide">Strategy Guide</a>
+    <a id='ng3pguide' href="https://ng-plus-plus-plus.wikia.com/wiki/Guide">NG+++ Guide</a>
   </body>
-  <script src='javascripts/howto.js'></script>
+  <script src='javascripts/howto.js?3'></script>
   </html>
   
   

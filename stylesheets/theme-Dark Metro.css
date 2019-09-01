@@ -113,12 +113,20 @@ input {
 }
 
 .eternitybtn {
-    color: #673AB7 !important;
-    border: 1px solid #673AB7 !important;
+    color: #7744C7 !important;
+    border: 1px solid #7744C7 !important;
 }
 
 .eternitybtn:hover {
     background: white !important;
+}
+
+.quantumbtn {
+    background: #0a640a !important;
+}
+
+.quantumbtn:hover {
+    background: #32c832 !important;
 }
 
 .eternitytabbtn {

@@ -10,19 +10,32 @@ var canvas = document.getElementById("studyTreeCanvas");
 var ctx = canvas.getContext("2d");
 var canvas3 = document.getElementById("dilationCanvas");
 var ctx3 = canvas3.getContext("2d");
-
-window.addEventListener("resize", resizeCanvas);
+var bhc = document.getElementById("blackHoleCanvas");
+var bhctx = bhc.getContext("2d");
+var msc = document.getElementById("studyTreeCanvas2");
+var msctx = msc.getContext("2d");
+var qkc = document.getElementById("quarkCanvas");
+var qkctx = qkc.getContext("2d");
 
 function resizeCanvas() {
-    canvas.width = 0;
-    canvas.height = 0;
-    canvas3.width = 0;
-    canvas3.height = 0;
-    canvas.width = document.body.scrollWidth;
-    canvas.height = document.body.scrollHeight;
-    canvas3.width = document.body.scrollWidth;
-    canvas3.height = document.body.scrollHeight;
-    drawStudyTree();
+	canvas.width = 0;
+	canvas.height = 0;
+	canvas3.width = 0;
+	canvas3.height = 0;
+	msc.width = 0;
+	msc.height = 0;
+	canvas.width = document.body.scrollWidth;
+	canvas.height = document.body.scrollHeight;
+	canvas3.width = document.body.scrollWidth;
+	canvas3.height = document.body.scrollHeight;
+	bhc.width = document.body.scrollWidth;
+	bhc.height = document.body.scrollHeight;
+	msc.width = document.body.scrollWidth;
+	msc.height = document.body.scrollHeight;
+	qkc.width = document.body.scrollWidth;
+	qkc.height = document.body.scrollHeight;
+	drawStudyTree();
+	drawMasteryTree();
 }
 
 function point(x, y, ctz){
@@ -32,18 +45,22 @@ function point(x, y, ctz){
   }
 
 function animationOnOff(name) {
-    if (player.options.animations[name]) player.options.animations[name] = false;
+    if (name == "bigCrunch" && shiftDown && player.options.animations[name] !== "always") player.options.animations[name] = "always"
+    else if (player.options.animations[name]) player.options.animations[name] = false;
     else player.options.animations[name] = true;
-    if (name == "floatingText") document.getElementById("floatingTextAnimBtn").textContent = "浮动文本: " + ((player.options.animations.floatingText) ? "开启" : "关闭")
-    else if (name == "bigCrunch") document.getElementById("bigCrunchAnimBtn").textContent = "大坍缩: " + ((player.options.animations.bigCrunch) ? "开启" : "关闭")
-    else if (name == "tachyonParticles") document.getElementById("tachyonParticleAnimBtn").textContent = "超光速粒子: " + ((player.options.animations.tachyonParticles) ? "ON" : "OFF")
-    if (player.options.animations[name]) requestAnimationFrame(drawAnimations);
+    if (name == "floatingText") document.getElementById("floatingTextAnimBtn").textContent = "Floating text: " + ((player.options.animations.floatingText) ? "ON" : "OFF")
+    else if (name == "bigCrunch") document.getElementById("bigCrunchAnimBtn").textContent = "Big crunch: " + (player.options.animations.bigCrunch === "always" ? "ALWAYS" : player.options.animations.bigCrunch ? "ON" : "OFF")
+    else if (name == "tachyonParticles") document.getElementById("tachyonParticleAnimBtn").textContent = "Tachyon particles: " + ((player.options.animations.tachyonParticles) ? "ON" : "OFF")
+    else if (name == "blackHole") document.getElementById("blackHoleAnimBtn").textContent = "Black hole: " + ((player.options.animations.blackHole) ? "ON" : "OFF")
+    else if (name == "quarks") document.getElementById("quarksAnimBtn").textContent="Quarks: O"+(player.options.animations[name]?"N":"FF")
+    else if (name == "ghostify") document.getElementById("ghostifyAnimBtn").textContent="Ghostify: O"+(player.options.animations[name]?"N":"FF")
 }
 
 function drawAnimations(ts){
     if (player.dilation.tachyonParticles.gte(1) && document.getElementById("eternitystore").style.display !== "none" && document.getElementById("dilation").style.display !== "none" && player.options.animations.tachyonParticles) {
         ctx3.clearRect(0, 0, canvas.width, canvas.height);
-        if (player.options.theme == "Dark" || player.options.theme == "Dark Metro") ctx3.fillStyle="#FFF";
+        if (player.options.theme == "Aarex's Modifications") ctx3.fillStyle="#e5e5e5";
+        else if (player.options.theme == "Dark" || player.options.theme == "Dark Metro") ctx3.fillStyle="#FFF";
         else ctx3.fillStyle="#000";
         for (i=0; i<player.dilation.tachyonParticles.exponent+1; i++) {
             if (typeof particles["particle"+i] == "undefined") {
@@ -75,10 +92,10 @@ function drawAnimations(ts){
             particles["particle"+i].goalX += particles["particle"+i].velocityX
             particles["particle"+i].goalY += particles["particle"+i].velocityY
         }
+        delta = (ts - lastTs) / 1000;
+        lastTs = ts;
+        requestAnimationFrame(drawAnimations);
     }
-    delta = (ts - lastTs) / 1000;
-    lastTs = ts;
-    if (player.options.animations.tachyonParticles) requestAnimationFrame(drawAnimations);
 }
 
 function drawTreeBranch(num1, num2) {
@@ -105,7 +122,9 @@ function drawTreeBranch(num1, num2) {
     ctx.lineWidth=15;
     ctx.beginPath();
     if ((player.timestudy.studies.includes(name1) && player.timestudy.studies.includes(name2) && !isECName) || (player.timestudy.studies.includes(name1) && (player.eternityChallUnlocked === name2 && isECName)) || (player.dilation.studies.includes(name2-1) && (player.dilation.studies.includes(name2) && isDilStudyName))) {
-        if (name2 < 20 && isECName) {
+        if (name2 == 6 && isDilStudyName && player.options.theme == "Aarex's Modifications") {
+            ctx.strokeStyle="#00E5E5";
+        } else if (name2 < 20 && isECName) {
             ctx.strokeStyle="#490066";
         } else if (name2 < 20) {
             ctx.strokeStyle="#64DD17";
@@ -125,7 +144,9 @@ function drawTreeBranch(num1, num2) {
             ctx.strokeStyle="#000000";
         }
     } else {
-        if (name2 < 20) {
+        if (name2 == 6 && isDilStudyName && player.options.theme == "Aarex's Modifications") {
+            ctx.strokeStyle="#007272";
+        } else if (name2 < 20) {
             ctx.strokeStyle="#4b3753";
         } else if (name2 == 71 || name2 == 81 || name2 == 91 || name2 == 101 || name1 == 101) {
             ctx.strokeStyle="#37533f";
@@ -241,7 +262,8 @@ function drawStudyTree() {
     drawTreeBranch("dilstudy2", "dilstudy3")
     drawTreeBranch("dilstudy3", "dilstudy4")
     drawTreeBranch("dilstudy4", "dilstudy5")
-    drawTreeBranch("dilstudy5", "dilstudy6")
+    if (player.meta) drawTreeBranch("dilstudy5", "dilstudy6")
+    if (player.masterystudies) drawTreeBranch("dilstudy6", "masteryportal")
     if (shiftDown && document.getElementById("eternitystore").style.display !== "none" && document.getElementById("timestudies").style.display !== "none") {
         for (i=0; i<all.length; i++) {
             var start = document.getElementById(all[i]).getBoundingClientRect();
@@ -254,7 +276,6 @@ function drawStudyTree() {
             if (document.getElementById(all[i]).className.split(" ")[1] !== undefined || all[i] > 220) {
                 var tempName = document.getElementById(all[i]).className.split(" ")[1];
                 var name;
-                console.log(all[i])
                 if (all[i] == 222 || all[i] == 223 || all[i] == 226 || all[i] == 227 || all[i] == 232 || all[i] == 233) name = "dark"
                 else if (all[i] == 221 || all[i] == 224 || all[i] == 225 || all[i] == 228 || all[i] == 231 || all[i] == 234) name = "light"
                 else if (tempName.includes("normaldimstudy")) name = "normal dims"

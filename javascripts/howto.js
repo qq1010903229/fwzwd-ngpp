@@ -22,16 +22,23 @@ function save() {
 	localStorage.setItem("howToSpoilers", spoilers)
 }
 
-function get_save(name) {
-    if (localStorage.getItem("dimensionSave") !== null) {
-        return JSON.parse(atob(localStorage.getItem(name), function(k, v) { return (v === Infinity) ? "Infinity" : v; }))
-	}
+function get_save(id) {
+    try {
+        var dimensionSave = localStorage.getItem(btoa('dsAM_ghostify_'+id))
+        if (dimensionSave !== null) dimensionSave = JSON.parse(atob(dimensionSave, function(k, v) { return (v === Infinity) ? "Infinity" : v; }))
+        return dimensionSave
+    } catch(e) { console.log("Fuck IE"); }
 }
 
 function load_game() {
-    var save_data = get_save('dimensionSave');
-    if (!save_data) return;
-	player = save_data;
+	metaSave = localStorage.getItem('AD_aarexModifications_ghostify')
+	if (metaSave == null) metaSave = {}
+	else metaSave = JSON.parse(atob(metaSave))
+	if (metaSave.current == undefined) {
+		metaSave.current = 1
+		metaSave.saveOrder = [1]
+	}
+	player = get_save(metaSave.current)
 }
 
 function showspoilers() {
@@ -47,65 +54,53 @@ function showspoilers() {
 }
 
 function updateSpoilers() {
-	var displayed = 0;
-	if (spoilers === 0) {
-		for (i=1; i<18; i++) {
-			displayed = 0;
-			if (i === 5 && (player.resets >= 4 || player.infinitied >= 1 || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
+	var displayed = spoilers;
+	document.getElementById("ng3pguide").style.display=player.masterystudies||spoilers?"":"none"
+	for (i=37; i>0; i--) {
+		if (i != 7) {
+			if (!displayed) {
+				if (i < 5) displayed = 1
+				else if (player) {
+					if (i == 5 && player.resets > 4) displayed = 1
+					if (i == 9 && player.achievements.includes("r21")) displayed = 1
+					if (i == 10 && player.achievements.includes("r41")) displayed = 1
+					if (i == 11 && player.infDimensionsUnlocked[0]) displayed = 1
+					if (i == 12 && player.postChallUnlocked > 0) displayed = 1
+					if (i == 13 && player.replicanti.unlocked) displayed = 1
+					if (i == 17 && player.achievements.includes("r96")) displayed = 1
+					if (i == 18 && (player.eternityChallUnlocked > 0 || player.eternityChalls.eterc1)) displayed = 1
+					if (i == 19 && player.dilation.studies.includes(1)) displayed = 1
+					if (i == 20 && player.dilation.studies.includes(6)) displayed = 1
+					if (i == 22 && player.quantum) if (player.quantum.times>0) displayed = 1
+					if (player.masterystudies) {
+						if (i == 21 && player.dilation.upgrades.includes("ngpp4")) displayed = 1
+						if (i == 23 && player.quantum) if (player.quantum.times > 0) displayed = 1
+						if (i == 24 && player.masterystudies.includes("d7")) displayed = 1
+						if (i == 25 && player.masterystudies.includes("d8")) displayed = 1
+						if (i == 26 && player.masterystudies.includes("d9")) displayed = 1
+						if (i == 27 && player.masterystudies.includes("d10")) displayed = 1
+						if (i == 28 && player.masterystudies.includes("d11")) displayed = 1
+						if (i == 29 && player.masterystudies.includes("d12")) displayed = 1
+						if (i == 30 && player.masterystudies.includes("d13")) displayed = 1
+						if (i == 31 && player.masterystudies.includes("d14")) displayed = 1
+						if (i == 32 && player.quantum) if (player.quantum.breakEternity) if (player.quantum.breakEternity.unlocked) displayed = 1
+						if (i == 36 && player.ghostify) if (player.ghostify.times > 0) displayed = 1
+						if (i == 37 && player.ghostify && player.ghostify.ghostlyPhotons) if (player.ghostify.ghostlyPhotons.unl) displayed = 1
+					}
+				}
 			}
-			if (i === 6 && (player.galaxies >= 1 || player.infinitied >= 1 || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 8 && (player.infinitied >= 1 || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 9 && (player.infinitied >= 1 || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 10 && (player.infinitied >= 1 || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 11 && (player.autobuyers[11].interval>100 || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 12 && (player.infDimensionsUnlocked[0] == true || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 13 && (player.postChallUnlocked >= 5 || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 14 && (player.replicanti.unl || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 15 && (player.replicanti.unl || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 16 && (player.replicanti.unl || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 17 && (player.replicanti.unl || player.eternities >= 1)) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-			if (i === 18 && player.eternities >= 1) { 
-				(displayed === 0) ? displayed = 1 : displayed = 0; 
-			} 
-			if (i < 5 || i === 7) {
-				(displayed === 0) ? displayed = 1 : displayed = 0;
-			}
-
-			if (displayed === 1) {
-				document.getElementById("div"+i+"btn").style.display = "block";
-				document.getElementById("div"+i+"hr").style.display = "block";
-			} else {
-				document.getElementById("div"+i+"btn").style.display = "none";
-				document.getElementById("div"+i+"hr").style.display = "none";
-			}
-		}
-	} else {
-		for (i=1; i<18; i++) {
-			document.getElementById("div"+i+"btn").style.display = "block";
-			document.getElementById("div"+i+"hr").style.display = "block";
+			if (displayed) {
+				if (i == 22) {
+					var msg = "When you reach "
+					if (player.masterystudies) msg += "9.32e446 meta-antimatter and completed EC14 for the first time"
+					else msg += "infinity meta-antimatter"
+					msg += ", you will able to go quantum. Quantum will reset everything eternity resets, and also time studies, eternity challenges, dilation, "+(player.masterystudies?"meta dimensions, and mastery studies":"and meta dimensions (except your best meta-antimatter)")+". You will gain a quark and unlock various upgrades."
+					if (player.masterystudies) msg += "<br><br>You will also unlock speedrun milestones where you must do fast quantums to get your QoL content rewards on eternity, and even quantum autobuyer."
+					document.getElementById("div22").innerHTML = msg
+				}
+			} else document.getElementById("div"+i).className = "hidden";
+			document.getElementById("div"+i+"btn").style.display = displayed ? "block" : "none";
+			document.getElementById("div"+i+"hr").style.display = displayed ? "block" : "none";
 		}
 	}
 }

@@ -46,6 +46,14 @@ button {
     background: #1565C0 !important;
 }
 
+.galaxybtn {
+  background: #000000 !important;
+}
+
+.galaxybtn:hover {
+  background: #1E90FF !important;
+}
+
 .infinitybtn {
     color: #000 !important;
     background: #F5F5F5 !important;
@@ -54,6 +62,14 @@ button {
 
 .infinitybtn:hover {
     background: #FF9800 !important;
+}
+
+.quantumbtn {
+    background: #0a640a !important;
+}
+
+.quantumbtn:hover {
+    background: #32c832 !important;
 }
 
 input {
@@ -561,6 +577,10 @@ input {
 #dilatedTimeAmount, #dilatedTimePerSecond, #galaxyThreshold, #dilatedGalaxies {
     color: #64DD17 !important;
     text-shadow: 0px 0px 7px #64DD17;
+}
+
+#metaAntimatterAmount, #metaAntimatterBest, #metaAntimatterPower, #metaAntimatterEffect {
+    color: #2682ca !important
 }
 
 @keyframes antimatterGlow {
