@@ -5222,11 +5222,11 @@ function gameLoop(diff) {
     } else if (player.infDimensionsUnlocked.includes(false)) {
         document.getElementById("progressbar").style.width = Decimal.min(player.money.e / getNewInfReq().e * 100, 100).toFixed(2) + "%"
         document.getElementById("progresspercent").textContent = Decimal.min(player.money.e / getNewInfReq().e * 100, 100).toFixed(2) + "%"
-        document.getElementById("progresspercent").setAttribute('ach-tooltip',"Percentage to next dimension unlock")
+        document.getElementById("progresspercent").setAttribute('ach-tooltip',"距离下一无限维度进度")
     } else {
         document.getElementById("progressbar").style.width = Decimal.min(Decimal.log10(player.infinityPoints.plus(1)) / Decimal.log10(Number.MAX_VALUE)  * 100, 100).toFixed(2) + "%"
         document.getElementById("progresspercent").textContent = Decimal.min(Decimal.log10(player.infinityPoints.plus(1)) / Decimal.log10(Number.MAX_VALUE)  * 100, 100).toFixed(2) + "%"
-        document.getElementById("progresspercent").setAttribute('ach-tooltip',"Percentage to Eternity")
+        document.getElementById("progresspercent").setAttribute('ach-tooltip',"距离永恒进度")
     }
 
     if (player.eternities > 0) {
