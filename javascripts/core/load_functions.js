@@ -1665,8 +1665,8 @@ if (player.version < 5) {
       document.getElementById("infi33").innerHTML = "维度提升倍数增加 <br>2x -> 2.5x<br>花费: 7 无限点数"
   }
   var resetSkipCosts=[20,40,80]
-  for (u=1;u<4;u++) document.getElementById("infi4"+u).innerHTML="You start with the "+(u+4)+"th dimension unlocked"+(player.tickspeedBoosts==undefined?"":" and "+(u*4)+" tickspeed boosts")+"<br>Cost: "+resetSkipCosts[u-1]+" IP"
-  document.getElementById("infi44").innerHTML="You start with the 8th dimension unlocked"+(player.tickspeedBoosts==undefined?"":", 16 tickspeed boosts")+", and a Galaxy<br>Cost: 500 IP"
+  for (u=1;u<4;u++) document.getElementById("infi4"+u).innerHTML="开始时已解锁"+["第五","第六","第七"][u-1]+"维度"+(player.tickspeedBoosts==undefined?"":", 并拥有"+(u*4)+"时间间隔提升")+"<br>花费: "+resetSkipCosts[u-1]+" 无限点数"
+  document.getElementById("infi44").innerHTML="开始时已解锁第八维度, 并拥有"+(player.tickspeedBoosts==undefined?"":"16时间间隔提升和")+"一个星系<br>花费: 500 无限点数"
   var showMoreBreak = player.galacticSacrifice ? "" : "none"
   for (i=1;i<5;i++) document.getElementById("postinfi0"+i).parentElement.style.display=showMoreBreak
   document.getElementById("d5AutoChallengeDesc").textContent=player.galacticSacrifice?"Tickspeed upgrades"+(player.tickspeedBoosts==undefined?"":" and Tickspeed Boosts")+" start out useless, but galaxies make them stronger.":"Tickspeed starts at 7%."
