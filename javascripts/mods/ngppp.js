@@ -384,8 +384,8 @@ function setupText() {
 			col.innerHTML="<button id='infi"+(c*10+r)+"' class='infinistorebtn"+c+"'></button>"
 		}
 	}
-	document.getElementById("infi14").innerHTML="Decrease the number of Dimensions needed for Dimensional Boosts and galaxies by 9<br>Cost: 1 IP"
-	document.getElementById("infi24").innerHTML="Antimatter Galaxies are twice as effective<br>Cost: 2 IP"
+	document.getElementById("infi14").innerHTML="维度提升以及反物质星系的维度需求减少9<br>花费: 1 无限点数"
+	document.getElementById("infi24").innerHTML="反物质星系的效果翻倍<br>花费: 2 无限点数"
 	document.getElementById("infi11").onclick = function () {
 		buyInfinityUpgrade("timeMult",1);
 	}
